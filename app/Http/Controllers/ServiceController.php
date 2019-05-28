@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Service;
 use App\ServiceCategory;
+use App\SSCategory;
 
 class ServiceController extends Controller {
 
@@ -52,5 +53,33 @@ class ServiceController extends Controller {
 
     public static function getChildCount($id) {
         return ServiceCategory::where('parent', $id)->count();
+    }
+
+    public function new() {
+        $categories = ServiceCategory::where('parent', '!=' , null)->orWhere('id', 1)->get();
+        return view('services.serviceNew', [
+            'categories' => $categories
+        ]);
+    }
+
+    public function addNew(Request $request) {
+        $this->validate($request, [
+            '*' => 'required'
+        ]);
+
+        $service = new Service();
+        $service->name = $request->name;
+        $service->website = $request->url;
+        $service->phone = $request->phone;
+        $service->save();
+
+        foreach ($request->categories as $category) {
+            $sscategory = new SSCategory();
+            $sscategory->service_id = $service->id;
+            $sscategory->category_id = $category;
+            $sscategory->save();
+        }
+
+        return redirect('/services/overview');
     }
 }

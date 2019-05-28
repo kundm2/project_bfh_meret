@@ -23,6 +23,13 @@ class Service extends Model
     protected $table = 'Service';
 
     /**
+    * Indicates if the IDs are auto-incrementing.
+    *
+    * @var bool
+    */
+   public $incrementing = true;
+
+    /**
      * @var array
      */
     protected $fillable = ['name', 'phone', 'website', 'description', 'created_at', 'updated_at'];
