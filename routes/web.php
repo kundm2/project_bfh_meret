@@ -16,6 +16,7 @@ Route::get('/dashboard', 'DashboardController@toIndex');
 
 Route::get('/institutes', 'InstituteController@index');
 
+Route::get('/services/overview', 'ServiceController@overview');
 Route::get('/services', 'ServiceController@index');
 
 Route::get('/events', 'EventController@index');

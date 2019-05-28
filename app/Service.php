@@ -37,4 +37,10 @@ class Service extends Model
         return $categories;
     }
 
+    public function hasCategory($catID) {
+        if (SSCategory::where('service_id', $this->id)->where('category_id', $catID)->count() > 0)
+            return true;
+        else
+            return false;
+    }
 }

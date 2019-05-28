@@ -10,3 +10,18 @@
 .navbar-bg {
     height: 70px !important;
 }
+
+.services-overview .service-name {
+    min-width: 250px;
+}
+.services-overview .service-phone {
+    min-width: 150px;
+}
+.services-overview .service-website {
+    min-width: 250px;
+}
+.services-overview .c {
+    color: darkgreen;
+    vertical-align: middle !important;
+    text-align: center;
+}

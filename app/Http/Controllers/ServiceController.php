@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Service;
+use App\ServiceCategory;
 
 class ServiceController extends Controller {
 
@@ -18,12 +19,23 @@ class ServiceController extends Controller {
         ]);
     }
 
+    public function overview() {
+        $services = Service::all();
+        $categories = ServiceCategory::where('parent', null)->get();
+        $usedCategories = ServiceCategory::where('parent', '!=' , null)->orWhere('id', 1)->get();
+        return view('services.servicesOverview', [
+            'services' => $services,
+            'categories' => $categories,
+            'usedCategories' => $usedCategories,
+        ]);
+    }
+
     public static function categoryList($categories) {
         $retVal = '';
         foreach ($categories as $category) {
             $retVal .= '<a href="' . $category['id'] . '">' . $category['name'] . '</a>, ';
         }
-        return $retVal ;
+        return substr($retVal, 0, -2);
     }
 
     public static function categoryClassList($categories) {
@@ -32,5 +44,13 @@ class ServiceController extends Controller {
             $retVal .=  ' cat-' . $category['id'];
         }
         return $retVal ;
+    }
+
+    public static function getChilds($id) {
+        return ServiceCategory::where('parent', $id)->get();
+    }
+
+    public static function getChildCount($id) {
+        return ServiceCategory::where('parent', $id)->count();
     }
 }

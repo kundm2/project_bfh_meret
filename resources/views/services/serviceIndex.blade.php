@@ -7,7 +7,7 @@
 
 <?php
     use Carbon\Carbon;
-    use App\Http\Controllers\ServiceController;
+    use App\Http\Controllers\ServiceController as SC;
     $dt = Carbon::now();
 ?>
 
@@ -19,7 +19,7 @@
 
     @foreach ($services as $service)
 
-    <div class="card{{ ServiceController::categoryClassList($service->getCategories()) }}">
+    <div class="card{{ SC::categoryClassList($service->getCategories()) }}">
         <div class="card-header">
             <h4>{{ $service->name }}</h4>
         </div>
@@ -30,16 +30,17 @@
                     <td><a href="tel:{{ $service->phone }}">{{ $service->phone }}</a></td>
                 </tr>
                 <tr>
-                        <th>Website</th>
+                    <th>Website</th>
                     <td><a href="http://{{ $service->website }}" target="_blank">{{ $service->website }}</a></td>
                 </tr>
             </table>
         </div>
         <div class="card-footer text-secondary">
-            <i class="fas fa-tags"></i> {!! ServiceController::categoryList($service->getCategories()) !!}
+            <i class="fas fa-tags"></i> {!! SC::categoryList($service->getCategories()) !!}
         </div>
     </div>
     @endforeach
+
 
 </div>
 
