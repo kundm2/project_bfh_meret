@@ -21,7 +21,7 @@ class ServiceController extends Controller {
     }
 
     public function overview() {
-        $services = Service::all();
+        $services = Service::all()->sortBy('name');
         $categories = ServiceCategory::where('parent', null)->get();
         $usedCategories = ServiceCategory::where('parent', '!=' , null)->orWhere('id', 1)->get();
         return view('services.servicesOverview', [
@@ -70,7 +70,7 @@ class ServiceController extends Controller {
         $service = new Service();
         $service->name = $request->name;
         $service->website = $request->url;
-        $service->phone = $request->phone;
+        $service->phone  = $request->phone;
         $service->save();
 
         foreach ($request->categories as $category) {
@@ -80,6 +80,6 @@ class ServiceController extends Controller {
             $sscategory->save();
         }
 
-        return redirect('/services/overview');
+        return redirect('/services/add');
     }
 }

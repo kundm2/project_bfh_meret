@@ -24,7 +24,7 @@
             <h4>{{ __('Référentiel des prestations destinées aux proches aidants') }}</h4>
         </div>
         <div class="card-body p-0 table-responsive">
-            <table class="table table-bordered services-overview">
+            <table class="table table-bordered table-sm services-overview">
                 <tr>
                     <th colspan="3"></th>
                     @foreach ($categories as $category)

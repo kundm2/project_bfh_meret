@@ -29,18 +29,18 @@
                     @enderror
                 </div>
                 <div class="form-group">
-                    <label for="url">Url</label>
-                    <input id="url" type="text" class="form-control @error('url') is-invalid @enderror" name="url" value="{{ old('url') }}">
-                    @error('url')
+                    <label for="phone">Phone</label>
+                    <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}">
+                    @error('phone')
                         <div class="invalid-feedback">
                             <strong>{{ $message }}</strong>
                         </div>
                     @enderror
                 </div>
                 <div class="form-group">
-                    <label for="phone">Phone</label>
-                    <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}">
-                    @error('phone')
+                    <label for="url">Url</label>
+                    <input id="url" type="text" class="form-control @error('url') is-invalid @enderror" name="url" value="{{ old('url') }}">
+                    @error('url')
                         <div class="invalid-feedback">
                             <strong>{{ $message }}</strong>
                         </div>
