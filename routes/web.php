@@ -14,6 +14,7 @@
 Route::get('/', 'DashboardController@index');
 Route::get('/dashboard', 'DashboardController@toIndex');
 
+Route::get('/institutes/data', 'InstituteController@returnData');
 Route::get('/institutes', 'InstituteController@index');
 
 Route::get('/services/overview', 'ServiceController@overview');
@@ -28,6 +29,8 @@ Route::get('/profile', 'ProfileController@index');
 Route::get('/zarit/new', 'ZARITController@new');
 Route::post('/zarit/new', 'ZARITController@addNew');
 Route::get('/zarit', 'ZARITController@index');
+
+
 
 Auth::routes();
 Route::get('logout', 'Auth\LoginController@logout');
