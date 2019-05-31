@@ -14,21 +14,22 @@
 
 <div class="section-body">
     <h2 class="section-title">
-            <div class="input-group float-right" style="max-width: 250px;">
+        <div class="input-group float-right" style="max-width: 250px;">
             <input type="text" class="form-control" placeholder="ex. Neuchâtel">
-                <div class="input-group-append">
-                    <div class="input-group-text form-control">
-                        <i class="fas fa-search-location"></i>
-                    </div>
+            <div class="input-group-append">
+                <div class="input-group-text form-control">
+                    <i class="fas fa-search-location"></i>
                 </div>
             </div>
-            Institutes
-            <br>
+        </div>
+        Institutes
     </h2>
+
+    <br>
 
     <div class="selectgroup w-100">
         <label class="selectgroup-item">
-            <input type="radio" name="value" value="50" class="selectgroup-input" checked="">
+            <input type="radio" name="value" value="50" class="selectgroup-input">
             <span class="selectgroup-button marker"><img src="https://cdn.mapmarker.io/api/v1/pin?size=60&background=%23D33115&text=H&color=%23FFFFFF&voffset=5&hoffset=1" width="20">{{ __('Hospital')}}</span>
         </label>
         <label class="selectgroup-item">
