@@ -41,9 +41,10 @@ $( document ).ready(function() {
 function institutesMap(element, institutes) {
     var element = element;
     var institutes = institutes;
-    var hospitalIcon = new L.icon({ iconUrl: "https://cdn.mapmarker.io/api/v1/pin?size=60&background=%23D33115&text=H&color=%23FFFFFF&voffset=5&hoffset=1", iconSize: [47, 44], iconAnchor: [24, 45], popupAnchor:  [0, -40] });
-    var drugIcon = new L.icon({ iconUrl: "https://cdn.mapmarker.io/api/v1/pin?size=60&background=%2368CCCA&icon=fa-medkit&color=%23FFFFFF&voffset=-3&hoffset=0", iconSize: [47, 44], iconAnchor: [24, 45], popupAnchor:  [0, -40] });
-    var pharmacieIcon = new L.icon({ iconUrl: "https://cdn.mapmarker.io/api/v1/pin?size=120&background=%23FFFFFF&icon=fa-plus&color=%2368BC00&voffset=0&hoffset=0", iconSize: [47, 44], iconAnchor: [24, 45], popupAnchor:  [0, -40] });
+    var hospitalIcon = new L.icon({ iconUrl: "img/markers/hospital.png", iconSize: [47, 44], iconAnchor: [24, 45], popupAnchor:  [0, -40] });
+    var drugIcon = new L.icon({ iconUrl: "img/markers/drugstore.png", iconSize: [47, 44], iconAnchor: [24, 45], popupAnchor:  [0, -40] });
+    var pharmacieIcon = new L.icon({ iconUrl: "img/markers/pharmacy.png", iconSize: [47, 44], iconAnchor: [24, 45], popupAnchor:  [0, -40] });
+    var emsIcon = new L.icon({ iconUrl: "img/markers/ems.png", iconSize: [47, 44], iconAnchor: [24, 45], popupAnchor:  [0, -40] });
     var map;
 
     this.initMap = function (lat, lon, zoom) {
@@ -64,6 +65,9 @@ function institutesMap(element, institutes) {
                 case "Pharmacie":
                     L.marker([place.lat, place.lon], {icon: pharmacieIcon}).addTo(map).bindPopup('<b>' + place.company + '</b><br>');
                     break;
+                case "EMS":
+                    L.marker([place.lat, place.lon], {icon: emsIcon}).addTo(map).bindPopup('<b>' + place.company + '</b><br>');
+                    break;
 
                 default:
                     L.marker([place.lat, place.lon]).addTo(map).bindPopup('<b>' + place.company + '</b><br>');
@@ -77,6 +81,7 @@ function institutesMap(element, institutes) {
             case 'hospital': type = "Hôpitaux"; break;
             case 'drugstore': type = "Droguerie"; break;
             case 'pharmacie': type = "Pharmacie"; break;
+            case 'ems': type = "EMS"; break;
             default: type = ""; break;
         }
         if (type == "") {

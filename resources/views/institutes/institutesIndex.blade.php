@@ -34,15 +34,19 @@
         </label>
         <label class="selectgroup-item">
             <input type="radio" name="selectedInstitution" value="hospital" class="selectgroup-input">
-            <span class="selectgroup-button marker"><img src="https://cdn.mapmarker.io/api/v1/pin?size=60&background=%23D33115&text=H&color=%23FFFFFF&voffset=5&hoffset=1" width="20">{{ __('Hospital')}}</span>
+            <span class="selectgroup-button marker"><img src="{{ URL::asset("/img/markers/hospital.png") }}" width="20">{{ __('Hospital')}}</span>
         </label>
         <label class="selectgroup-item">
             <input type="radio" name="selectedInstitution" value="drugstore" class="selectgroup-input">
-            <span class="selectgroup-button marker"><img src="https://cdn.mapmarker.io/api/v1/pin?size=60&background=%2368CCCA&icon=fa-medkit&color=%23FFFFFF&voffset=-3&hoffset=0" width="20">{{ __('Droguerie')}}</span>
+            <span class="selectgroup-button marker"><img src="{{ URL::asset("/img/markers/drugstore.png") }}" width="20">{{ __('Droguerie')}}</span>
         </label>
         <label class="selectgroup-item">
             <input type="radio" name="selectedInstitution" value="pharmacie" class="selectgroup-input">
-            <span class="selectgroup-button marker"><img src="https://cdn.mapmarker.io/api/v1/pin?size=120&background=%23FFFFFF&icon=fa-plus&color=%2368BC00&voffset=0&hoffset=0" width="20">{{ __('Pharmacie')}}</span>
+            <span class="selectgroup-button marker"><img src="{{ URL::asset("/img/markers/pharmacy.png") }}" width="20">{{ __('Pharmacie')}}</span>
+        </label>
+        <label class="selectgroup-item">
+            <input type="radio" name="selectedInstitution" value="ems" class="selectgroup-input">
+            <span class="selectgroup-button marker"><img src="{{ URL::asset("/img/markers/ems.png") }}" width="20">{{ __('EMS')}}</span>
         </label>
     </div>
 
@@ -53,7 +57,7 @@
         $( document ).ready(function() {
             var institutes = {!! $institutes !!};
             iM = new institutesMap ('mapdiv', institutes);
-            iM.initMap(46.990926, 6.928065, 15);
+            iM.initMap(47.00704178216761, 6.772727966308595, 11);
         });
     </script>
 </div>
