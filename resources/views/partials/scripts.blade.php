@@ -12,6 +12,5 @@
 
 	<!-- Template JS File -->
 	<script src="{{ URL::asset("/js/scripts.js") }}"></script>
-	<script src="{{ URL::asset("/js/custom.js") }}"></script>
 
 	<!-- Page Specific JS File -->
