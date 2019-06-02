@@ -34,19 +34,19 @@
         </label>
         <label class="selectgroup-item">
             <input type="radio" name="selectedInstitution" value="hospital" class="selectgroup-input">
-            <span class="selectgroup-button marker"><img src="{{ URL::asset("/img/markers/hospital.png") }}" width="20">{{ __('Hospital')}}</span>
+            <span class="selectgroup-button marker"><img src="{{ URL::asset("/img/markers/hospital.png") }}" width="20"><span class="label">{{ __('Hospital')}}</span></span>
         </label>
         <label class="selectgroup-item">
             <input type="radio" name="selectedInstitution" value="drugstore" class="selectgroup-input">
-            <span class="selectgroup-button marker"><img src="{{ URL::asset("/img/markers/drugstore.png") }}" width="20">{{ __('Droguerie')}}</span>
+            <span class="selectgroup-button marker"><img src="{{ URL::asset("/img/markers/drugstore.png") }}" width="20"><span class="label">{{ __('Droguerie')}}</span></span>
         </label>
         <label class="selectgroup-item">
             <input type="radio" name="selectedInstitution" value="pharmacie" class="selectgroup-input">
-            <span class="selectgroup-button marker"><img src="{{ URL::asset("/img/markers/pharmacy.png") }}" width="20">{{ __('Pharmacie')}}</span>
+            <span class="selectgroup-button marker"><img src="{{ URL::asset("/img/markers/pharmacy.png") }}" width="20"><span class="label">{{ __('Pharmacie')}}</span></span>
         </label>
         <label class="selectgroup-item">
             <input type="radio" name="selectedInstitution" value="ems" class="selectgroup-input">
-            <span class="selectgroup-button marker"><img src="{{ URL::asset("/img/markers/ems.png") }}" width="20">{{ __('EMS')}}</span>
+            <span class="selectgroup-button marker"><img src="{{ URL::asset("/img/markers/ems.png") }}" width="20"><span class="label">{{ __('EMS')}}</span></span>
         </label>
     </div>
 
