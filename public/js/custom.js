@@ -45,12 +45,13 @@ $( document ).ready(function() {
 });
 
 function institutesMap(element, institutes) {
+    var baseurl = window.location.origin + '/';
     var element = element;
     var institutes = institutes;
-    var hospitalIcon = new L.icon({ iconUrl: "img/markers/hospital.png", iconSize: [47, 44], iconAnchor: [24, 45], popupAnchor:  [0, -40] });
-    var drugIcon = new L.icon({ iconUrl: "img/markers/drugstore.png", iconSize: [47, 44], iconAnchor: [24, 45], popupAnchor:  [0, -40] });
-    var pharmacieIcon = new L.icon({ iconUrl: "img/markers/pharmacy.png", iconSize: [47, 44], iconAnchor: [24, 45], popupAnchor:  [0, -40] });
-    var emsIcon = new L.icon({ iconUrl: "img/markers/ems.png", iconSize: [47, 44], iconAnchor: [24, 45], popupAnchor:  [0, -40] });
+    var hospitalIcon = new L.icon({ iconUrl: baseurl + "img/markers/hospital.png", iconSize: [47, 44], iconAnchor: [24, 45], popupAnchor:  [0, -40] });
+    var drugIcon = new L.icon({ iconUrl: baseurl + "img/markers/drugstore.png", iconSize: [47, 44], iconAnchor: [24, 45], popupAnchor:  [0, -40] });
+    var pharmacieIcon = new L.icon({ iconUrl: baseurl + "img/markers/pharmacy.png", iconSize: [47, 44], iconAnchor: [24, 45], popupAnchor:  [0, -40] });
+    var emsIcon = new L.icon({ iconUrl: baseurl + "img/markers/ems.png", iconSize: [47, 44], iconAnchor: [24, 45], popupAnchor:  [0, -40] });
     var map;
 
     this.initMap = function (lat, lon, zoom) {
