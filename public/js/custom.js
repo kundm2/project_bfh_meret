@@ -22,20 +22,27 @@ $( document ).ready(function() {
         });
     });
 
-    $('input:radio[name="selectedInstitution"]').change( function() {
-        var lat = iM.getLat();
-        var lon = iM.getLon();
-        var zoom = iM.getZoom();
-        iM.filterMap(lat, lon, zoom, $(this).val())
+
+    if($("#searchInstitution"). length){
+        $('input:radio[name="selectedInstitution"]').change( function() {
+            var lat = iM.getLat();
+            var lon = iM.getLon();
+            var zoom = iM.getZoom();
+            iM.filterMap(lat, lon, zoom, $(this).val())
+        });
+        $('#searchInstitution').change(function() {
+            iM.searchMap( $( this ).val() );
+        });
+        $('#searchInstitutionBtn').click(function() {
+            iM.searchMap( $('#searchInstitution').val() );
+        });
+    };
+
+
+    $('#searchPostcode').change(function() {
+        $('#city').val(  cap.getCityByPostcode( $( this ).val() ) ) ;
     });
 
-    $('#searchInstitution').change(function() {
-        iM.searchMap( $( this ).val() );
-    });
-
-    $('#searchInstitutionBtn').click(function() {
-        iM.searchMap( $( this ).val() );
-    });
 });
 
 function institutesMap(element, institutes) {
@@ -100,7 +107,7 @@ function institutesMap(element, institutes) {
     this.searchMap = function (search) {
         this.removeMap();
         var searchedInstitutes = $.grep( institutes , function( n, i ) {
-            return (n.company.match(new RegExp(search, 'i'))) || (n.city.match(new RegExp(search, 'i'))) || (n.type.match(new RegExp(search, 'i'))) || (n.address.match(new RegExp(search, 'i')));
+            return (n.company.match(new RegExp(search, 'i'))) || (n.city.match(new RegExp(search, 'i'))) || (n.type.match(new RegExp(search, 'i'))) || (n.address.match(new RegExp(search, 'i'))) || n.postcode == parseInt(search);
         });
         this.renderMap(this.getLat(), this.getLon(), this.getZoom(), searchedInstitutes);
     }
@@ -112,4 +119,20 @@ function institutesMap(element, institutes) {
     this.getZoom = function () { return map.getZoom() }
     this.getLat = function () { return map.getCenter().lat }
     this.getLon = function () { return map.getCenter().lng  }
+}
+
+function citiesAndPostcodes(cities) {
+    var cities = cities;
+
+    this.getCityByPostcode = function (postcode) {
+        var searchedCitites = $.grep( cities , function( n, i ) {
+            return n.postcode==postcode;
+        });
+        if (searchedCitites === undefined || searchedCitites.length == 0) {
+            return '';
+        }
+        else {
+            return searchedCitites[0].city;
+        }
+    }
 }

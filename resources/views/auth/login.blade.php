@@ -68,14 +68,14 @@
 
             </div>
           </div>
-          <div class="col-lg-8 col-12 order-lg-2 order-1 min-vh-100 background-walk-y position-relative overlay-gradient-bottom" data-background="../assets/img/unsplash/login-bg.jpg">
+          <div class="col-lg-8 col-12 order-lg-2 order-1 min-vh-100 position-relative overlay-gradient-bottom" data-background="{{URL::to('/img/login2-bg.jpg')}}" style="background-size: cover;">
             <div class="absolute-bottom-left index-2">
               <div class="text-light p-5 pb-2">
                 <div class="mb-5 pb-3">
-                  <h1 class="mb-2 display-4 font-weight-bold">Good Mornig</h1>
+                  <h1 class="mb-2 display-4 font-weight-bold">{{ __('Good morning') }}</h1>
                   <h5 class="font-weight-normal text-muted-transparent">Neuchâtel</h5>
                 </div>
-                Photo by <a class="text-light bb" target="_blank" href="https://unsplash.com/photos/a8lTjWJJgLA">Justin Kauffman</a> on <a class="text-light bb" target="_blank" href="https://unsplash.com">Unsplash</a>
+                Photo via <a href="https://www.goodfreephotos.com/">Good Free Photos</a>
               </div>
             </div>
           </div>

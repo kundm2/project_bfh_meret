@@ -14,3 +14,4 @@
 	<script src="{{ URL::asset("/js/scripts.js") }}"></script>
 
 	<!-- Page Specific JS File -->
+	<script src="{{ URL::asset("/js/custom.js") }}"></script>

@@ -14,6 +14,7 @@ use Illuminate\Contracts\Auth\Authenticatable;
  * @property string $password
  * @property string $birthday
  * @property int $postcode
+ * @property boolean $first_time_login
  * @property string $created_at
  * @property string $updated_at
  * @property Activity[] $activities
@@ -27,7 +28,7 @@ class User extends Model implements Authenticatable
     /**
      * @var array
      */
-    protected $fillable = ['first_name', 'name', 'gender', 'email', 'password', 'birthday', 'postcode', 'created_at', 'updated_at'];
+    protected $fillable = ['first_name', 'name', 'gender', 'email', 'password', 'birthday', 'postcode', 'first_time_login', 'created_at', 'updated_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

@@ -25,6 +25,9 @@ Route::get('/services', 'ServiceController@index');
 Route::get('/events', 'EventController@index');
 
 Route::get('/profile', 'ProfileController@index');
+Route::post('/firstlogin', 'ProfileController@firstLoginAdd');
+Route::post('/firstlogin2', 'ProfileController@firstLoginAdd2');
+Route::get('/firstlogin', 'ProfileController@firstLogin');
 
 Route::get('/zarit/new', 'ZARITController@new');
 Route::post('/zarit/new', 'ZARITController@addNew');
