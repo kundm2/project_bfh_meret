@@ -63,16 +63,16 @@ function institutesMap(element, institutes) {
         places.forEach(place => {
             switch (place.type) {
                 case "Hôpitaux":
-                    L.marker([place.lat, place.lon], {icon: hospitalIcon}).addTo(map).bindPopup('<b>' + place.company + '</b><br>');
+                    L.marker([place.lat, place.lon], {icon: hospitalIcon}).addTo(map).bindPopup(templateInstituteHTML(place));
                     break;
                 case "Droguerie":
-                    L.marker([place.lat, place.lon], {icon: drugIcon}).addTo(map).bindPopup('<b>' + place.company + '</b><br>');
+                    L.marker([place.lat, place.lon], {icon: drugIcon}).addTo(map).bindPopup(templateInstituteHTML(place));
                     break;
                 case "Pharmacie":
-                    L.marker([place.lat, place.lon], {icon: pharmacieIcon}).addTo(map).bindPopup('<b>' + place.company + '</b><br>');
+                    L.marker([place.lat, place.lon], {icon: pharmacieIcon}).addTo(map).bindPopup(templateInstituteHTML(place));
                     break;
                 case "EMS":
-                    L.marker([place.lat, place.lon], {icon: emsIcon}).addTo(map).bindPopup('<b>' + place.company + '</b><br>');
+                    L.marker([place.lat, place.lon], {icon: emsIcon}).addTo(map).bindPopup(templateInstituteHTML(place));
                     break;
 
                 default:

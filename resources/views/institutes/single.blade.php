@@ -18,19 +18,60 @@
         {{$institution->company }}
     </h2>
 
-    {{var_dump($institution->toArray())}}
-
-    <div id="mapdiv"></div>
-	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
-    <script>
-        $( document ).ready(function() {
-            var institute = {!! json_encode($temp) !!};
-            iM = new institutesMap ('mapdiv', institute);
-            iM.initMap({{$institution->lat}}, {{$institution->lon}}, 11);
-        });
-    </script>
-
+    <div class="row">
+        <div class="col-12 col-md-12 col-lg-6">
+            <div class="card">
+                <div class="card-body p-0">
+                    <table class="table">
+                        <tr>
+                            <th >{{__('Address')}}</th>
+                            <td>
+                                {{ $institution->address }} <br />
+                                {{ $institution->postcode}} {{ $institution->city}}
+                            </td>
+                        </tr>
+                        @if (isset($institution->phone))
+                            <tr>
+                                <th >{{__('Phone')}}</th>
+                                <td>
+                                    <a href="tel:{{ $institution->phone }}">{{ $institution->phone }}</a>
+                                </td>
+                            </tr>
+                        @endif
+                        @if (isset($institution->website))
+                            <tr>
+                                <th >{{__('Website')}}</th>
+                                <td>
+                                    <a href="{{ $institution->website }}">{{ $institution->website }}</a>
+                                </td>
+                            </tr>
+                        @endif
+                        @if (isset($institution->type))
+                            <tr>
+                                <th >{{__('Type')}}</th>
+                                <td>
+                                    {{ $institution->type }}
+                                </td>
+                            </tr>
+                        @endif
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-12 col-lg-6">
+            <div id="mapdiv"></div>
+                <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+                <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+                <script>
+                    $( document ).ready(function() {
+                        var institute = {!! json_encode($temp) !!};
+                        iM = new institutesMap ('mapdiv', institute);
+                        iM.initMap({{$institution->lat}}, {{$institution->lon}}, 11);
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
 </div>
 
 @endsection
