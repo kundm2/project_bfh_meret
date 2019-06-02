@@ -76,7 +76,7 @@ function institutesMap(element, institutes) {
                     break;
 
                 default:
-                    L.marker([place.lat, place.lon]).addTo(map).bindPopup('<b>' + place.company + '</b><br>');
+                    L.marker([place.lat, place.lon]).addTo(map).bindPopup(templateInstituteHTML(place));
                     break;
             }
         });
@@ -132,4 +132,11 @@ function citiesAndPostcodes(cities) {
         else
             return searchedCitites[0].city;
     }
+}
+
+function templateInstituteHTML(institute) {
+    var retVal = '<b>' + institute.company + '</b><br>';
+    retVal += institute.postcode + ' '  + institute.city + '<br>';
+    retVal += '<a href="' + window.location.origin + '/institutes/' + institute.id + '">Plus</a>'
+    return retVal;
 }

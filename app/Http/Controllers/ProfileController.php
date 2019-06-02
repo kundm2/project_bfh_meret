@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Pathology;
 use App\PersonInNeed;
-use Faker\Provider\es_ES\Person;
 
 class ProfileController extends Controller {
 

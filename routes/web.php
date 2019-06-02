@@ -15,6 +15,7 @@ Route::get('/', 'DashboardController@index');
 Route::get('/dashboard', 'DashboardController@toIndex');
 
 Route::get('/institutes/data', 'InstituteController@returnData');
+Route::get('/institutes/{id}', 'InstituteController@singleInstitute');
 Route::get('/institutes', 'InstituteController@index');
 
 Route::get('/services/overview', 'ServiceController@overview');
