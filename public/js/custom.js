@@ -38,7 +38,6 @@ $( document ).ready(function() {
         });
     };
 
-
     $('#searchPostcode').change(function() {
         $('#city').val(  cap.getCityByPostcode( $( this ).val() ) ) ;
     });
@@ -128,11 +127,9 @@ function citiesAndPostcodes(cities) {
         var searchedCitites = $.grep( cities , function( n, i ) {
             return n.postcode==postcode;
         });
-        if (searchedCitites === undefined || searchedCitites.length == 0) {
+        if (searchedCitites === undefined || searchedCitites.length == 0)
             return '';
-        }
-        else {
+        else
             return searchedCitites[0].city;
-        }
     }
 }
