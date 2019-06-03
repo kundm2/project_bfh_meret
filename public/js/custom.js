@@ -25,10 +25,7 @@ $( document ).ready(function() {
 
     if($("#searchInstitution"). length){
         $('input:radio[name="selectedInstitution"]').change( function() {
-            var lat = iM.getLat();
-            var lon = iM.getLon();
-            var zoom = iM.getZoom();
-            iM.filterMap(lat, lon, zoom, $(this).val())
+            iM.filterMap( $(this).val() )
         });
         $('#searchInstitution').change(function() {
             iM.searchMap( $( this ).val() );
@@ -83,7 +80,7 @@ function institutesMap(element, institutes) {
         });
     }
 
-    this.filterMap = function (lat, lon, zoom, type) {
+    this.filterMap = function (type) {
         switch (type) {
             case 'hospital': type = "Hôpitaux"; break;
             case 'drugstore': type = "Droguerie"; break;
@@ -93,14 +90,14 @@ function institutesMap(element, institutes) {
         }
         if (type == "") {
             this.removeMap();
-            this.initMap(lat, lon, zoom);
+            this.initMap(this.getLat(), this.getLon(), this.getZoom());
         }
         else {
             var filteredInstitutes = $.grep( institutes , function( n, i ) {
                 return n.type===type;
             });
             this.removeMap();
-            this.renderMap(lat, lon, zoom, filteredInstitutes);
+            this.renderMap(this.getLat(), this.getLon(), this.getZoom(), filteredInstitutes);
         }
     }
 
