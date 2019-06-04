@@ -15,8 +15,10 @@ class ServiceController extends Controller {
 
     public function index() {
         $services = Service::all();
+        $categories = ServiceCategory::where('parent', '!=' , null)->orWhere('id', 1)->get();
         return view('services.serviceIndex', [
-            'services' => $services
+            'services' => $services,
+            'categories' => $categories,
         ]);
     }
 

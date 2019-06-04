@@ -1,6 +1,7 @@
 @extends('page')
 
 @section('title', 'Services')
+@section('body-class', 'services-overview')
 
 @section('navbar')
 @endsection
@@ -14,8 +15,24 @@
 @section('main-content')
 
 <div class="section-body">
-    <h2 class="section-title">Services</h2>
-    <!-- card wrapper -->
+    <h2 class="section-title">
+        <div class="input-group float-right">
+            <select class="form-control">
+                @foreach ($categories as $category)
+                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                @endforeach
+            </select>
+            <input type="text" id="searchService" class="form-control" placeholder="ex. Neuchâtel">
+            <div class="input-group-append" id="searchServiceBtn">
+                <div class="input-group-text form-control">
+                    <i class="fas fa-search-location"></i>
+                </div>
+            </div>
+        </div>
+        Services
+    </h2>
+
+    <br /><br />
 
     @foreach ($services as $service)
 

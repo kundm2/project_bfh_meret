@@ -5,7 +5,7 @@
 
     @include('partials.header')
 </head>
-<body>
+<body class="@yield('body-class')">
     <div id="app">
         <div class="main-wrapper">
 

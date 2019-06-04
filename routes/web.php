@@ -34,6 +34,7 @@ Route::get('/zarit/new', 'ZARITController@new');
 Route::post('/zarit/new', 'ZARITController@addNew');
 Route::get('/zarit', 'ZARITController@index');
 
+Route::get('/settings', 'SettingsController@index');
 
 
 Auth::routes();
