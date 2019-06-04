@@ -41,7 +41,7 @@ $( document ).ready(function() {
 
 });
 
-function institutesMap(element, institutes) {
+function institutesMap(element, institutes, lat, lon, zoom) {
     var baseurl = window.location.origin + '/';
     var element = element;
     var institutes = institutes;
@@ -49,6 +49,7 @@ function institutesMap(element, institutes) {
     var drugIcon = new L.icon({ iconUrl: baseurl + "img/markers/drugstore.png", iconSize: [38, 44], iconAnchor: [19, 45], popupAnchor:  [0, -40] });
     var pharmacieIcon = new L.icon({ iconUrl: baseurl + "img/markers/pharmacy.png", iconSize: [38, 44], iconAnchor: [19, 45], popupAnchor:  [0, -40] });
     var emsIcon = new L.icon({ iconUrl: baseurl + "img/markers/ems.png", iconSize: [38, 44], iconAnchor: [19, 45], popupAnchor:  [0, -40] });
+    var defaultIcon = new L.icon({ iconUrl: baseurl + "img/markers/default.png", iconSize: [38, 44], iconAnchor: [19, 45], popupAnchor:  [0, -40] });
     var map;
 
     this.initMap = function (lat, lon, zoom) {
@@ -72,15 +73,15 @@ function institutesMap(element, institutes) {
                 case "EMS":
                     L.marker([place.lat, place.lon], {icon: emsIcon}).addTo(map).bindPopup(templateInstituteHTML(place));
                     break;
-
                 default:
-                    L.marker([place.lat, place.lon]).addTo(map).bindPopup(templateInstituteHTML(place));
+                    L.marker([place.lat, place.lon], {icon: defaultIcon}).addTo(map).bindPopup(templateInstituteHTML(place));
                     break;
             }
         });
     }
 
     this.filterMap = function (type) {
+        map.remove();
         switch (type) {
             case 'hospital': type = "Hôpitaux"; break;
             case 'drugstore': type = "Droguerie"; break;
@@ -89,33 +90,29 @@ function institutesMap(element, institutes) {
             default: type = ""; break;
         }
         if (type == "") {
-            this.removeMap();
             this.initMap(this.getLat(), this.getLon(), this.getZoom());
         }
         else {
             var filteredInstitutes = $.grep( institutes , function( n, i ) {
                 return n.type===type;
             });
-            this.removeMap();
             this.renderMap(this.getLat(), this.getLon(), this.getZoom(), filteredInstitutes);
         }
     }
 
     this.searchMap = function (search) {
-        this.removeMap();
+        map.remove();
         var searchedInstitutes = $.grep( institutes , function( n, i ) {
             return (n.company.match(new RegExp(search, 'i'))) || (n.city.match(new RegExp(search, 'i'))) || (n.type.match(new RegExp(search, 'i'))) || (n.address.match(new RegExp(search, 'i'))) || n.postcode == parseInt(search);
         });
         this.renderMap(this.getLat(), this.getLon(), this.getZoom(), searchedInstitutes);
     }
 
-    this.removeMap = function () {
-        map.remove();
-    }
-
     this.getZoom = function () { return map.getZoom() }
     this.getLat = function () { return map.getCenter().lat }
-    this.getLon = function () { return map.getCenter().lng  }
+    this.getLon = function () { return map.getCenter().lng }
+
+    this.initMap(lat, lon, zoom);
 }
 
 function citiesAndPostcodes(cities) {

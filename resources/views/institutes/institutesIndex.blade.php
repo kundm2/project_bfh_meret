@@ -56,8 +56,7 @@
     <script>
         $( document ).ready(function() {
             var institutes = {!! $institutes !!};
-            iM = new institutesMap ('mapdiv', institutes);
-            iM.initMap(47.00704178216761, 6.772727966308595, 11);
+            iM = new institutesMap ('mapdiv', institutes, 47.00704178216761, 6.772727966308595, 11);
         });
     </script>
 </div>
