@@ -35,6 +35,28 @@ $( document ).ready(function() {
         });
     };
 
+    if ($('.services-card')) {
+        $('.services-card').click(function() {
+            $('.card-body', this).toggle(100);
+        });
+        $('#filterServiceSelect').change(function() {
+            if ($( this ).val() == -1) {
+                $('.services-cards .card').show();
+            } else {
+                $('.services-cards .card').hide();
+                $('.services-cards .cat-' +$( this ).val()).show();
+            }
+        });
+        $('#searchService').on('keyup', function () {
+            var value = this.value;
+            $('.services-cards .card h4').parent().parent().hide().each(function () {
+                if ($(this).text().search(value) > -1) {
+                    $(this).show();
+                }
+            });
+        });
+    }
+
     $('#searchPostcode').change(function() {
         $('#city').val(  cap.getCityByPostcode( $( this ).val() ) ) ;
     });

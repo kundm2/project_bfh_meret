@@ -17,7 +17,8 @@
 <div class="section-body">
     <h2 class="section-title">
         <div class="input-group float-right">
-            <select class="form-control">
+            <select class="form-control" id="filterServiceSelect">
+                <option value="-1">{{ __('Tout') }}</option>
                 @foreach ($categories as $category)
                     <option value="{{ $category->id }}">{{ $category->name }}</option>
                 @endforeach
@@ -34,9 +35,10 @@
 
     <br /><br />
 
+    <div class="services-cards">
     @foreach ($services as $service)
 
-    <div class="card{{ SC::categoryClassList($service->getCategories()) }}">
+    <div class="card services-card{{ SC::categoryClassList($service->getCategories()) }} {{ "service-" . $service->id }}">
         <div class="card-header">
             <h4>{{ $service->name }}</h4>
         </div>
@@ -57,6 +59,7 @@
         </div>
     </div>
     @endforeach
+    </div>
 
 </div>
 
