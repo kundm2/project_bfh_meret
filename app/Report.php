@@ -51,4 +51,16 @@ class Report extends Model
     public function getScore() {
         return $this->answers()->get()->sum('answer');
     }
+
+    public function getRating() {
+        $score = $this->getScore();
+        if ($score > 5.5)
+            return "Fardeau sévère";
+        else if ($score > 3.5)
+            return "Fardeau modéré à sévère";
+        else if ($score > 1.5)
+            return "Fardeau léger à modéré";
+        else
+            return "Fardeau absent ou léger";
+    }
 }

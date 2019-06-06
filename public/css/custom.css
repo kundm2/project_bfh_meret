@@ -39,8 +39,27 @@ body.services-overview .section-title .input-group {
 }
 
 
+/* ZARIT */
+.rank-7{ color: #8F1B00; }
+.rank-6{ color: #974D00; }
+.rank-5{ color: #9F8300; }
+.rank-4{ color: #8EA700; }
+.rank-3{ color: #5EAF00; }
+.rank-2{ color: #28B700; }
+.rank-1{ color: #00BF11; }
+.zarit-scores-tables {
+    max-height: 500px;
+    overflow-y: scroll;
+}
+#zarit-scale {
+    display: block;
+    width: 100%;
+    height: 10px;
+    background: #E6DADA;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #00BF11, #8F1B00);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #00BF11, #8F1B00); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-
+}
 
 
 

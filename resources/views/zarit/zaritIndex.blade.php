@@ -56,6 +56,18 @@
                         </script>
                 </div>
             </div>
+            <div class="card">
+                <div class="card-header">
+                    <h4>{{ __('Interprétation - Fardeau') }}</h4>
+                </div>
+                <div class="card-body">
+                    <div id="zarit-scale"></div>
+                    <div class="row">
+                        <div class="col-6 rank-1">léger</div>
+                        <div class="col-6 rank-7 text-right">sévère</div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="col-12 col-md-6 col-lg-6">
             <div class="card">
@@ -63,12 +75,13 @@
                     <h4>Your past ZARITs</h4>
                 </div>
                 @if (true)
-                    <div class="card-body p-0">
+                    <div class="card-body p-0 zarit-scores-tables">
                         <table class="table">
                         <tbody>
                             @foreach ($reports as $report)
                                 <tr>
-                                    <th>{{ $report->getScore() }}</th>
+                                    <th class="rank-{{ floor($report->getScore()) }}">{{ $report->getScore() }}</th>
+                                    <td class="rank-{{ floor($report->getScore()) }}">{{ $report->getRating() }}</td>
                                     <td>{{ Carbon::parse($report->created_at)->diffforhumans() }}</td>
                                 </tr>
                             @endforeach

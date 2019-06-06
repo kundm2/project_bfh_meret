@@ -18,9 +18,8 @@
     <div class="row">
         <div class="col-12 col-md-6 col-lg-6">
             <p class="lead">Grille d’identification et d’évaluation du fardeau de l’aidant</p>
-            <p>
-                Cet outil permet d’évaluer la souffrance des aidant-e-s accompagnant des personnes atteintes dans leur santé.
-            </p>
+            <p>Cet outil permet d’évaluer la souffrance des aidant-e-s accompagnant des personnes atteintes dans leur santé.</p>
+            <p>Notation : 0 = jamais ; ½ = parfois ; 1 = souvent</p>
             <form action="{{ URL::to('/zarit/new') }}" method="post">
                 @csrf
 
@@ -35,15 +34,15 @@
                             {{ old('question' . $question->id) }}
                             <div class="custom-control custom-radio custom-control-inline">
                                 <input type="radio" id="zero{{$question->id}}" name="question{{$question->id}}" class="custom-control-input" value="zero" @if (old('question' . $question->id) == "zero") checked @endif>
-                                <label class="custom-control-label" for="zero{{$question->id}}"><b>0</b></label>
+                                <label class="custom-control-label" for="zero{{$question->id}}"><b>0</b> <span class="desc">jamais</span></label>
                             </div>
                             <div class="custom-control custom-radio custom-control-inline">
                                 <input type="radio" id="half{{$question->id}}" name="question{{$question->id}}" class="custom-control-input" value="0.5" @if (old('question' . $question->id) == 0.5) checked @endif>
-                                <label class="custom-control-label" for="half{{$question->id}}"><b>&frac12;</b></label>
+                                <label class="custom-control-label" for="half{{$question->id}}"><b>&frac12;</b> <span class="desc">parfois</span></label>
                             </div>
                             <div class="custom-control custom-radio custom-control-inline">
                                 <input type="radio" id="one-id{{$question->id}}" name="question{{$question->id}}" class="custom-control-input" value="1" @if (old('question' . $question->id) == 1) checked @endif>
-                                <label class="custom-control-label" for="one-id{{$question->id}}"><b>1</b></label>
+                                <label class="custom-control-label" for="one-id{{$question->id}}"><b>1</b> <span class="desc">souvent</span></label>
                             </div>
                         </div>
                         @error('question' . $question->id)
@@ -57,9 +56,6 @@
                     <button class="btn" type="reset">Reset</button>
                     <button class="btn btn-primary mr-1" type="submit">Submit</button>
                 </p>
-                <span class="text-left">
-                    0
-                </span>
             </form>
         </div>
         <div class="col-12 col-md-6 col-lg-6">
