@@ -14,7 +14,10 @@
 @section('main-content')
 
 <div class="section-body">
-    <h2 class="section-title">{{__('ZARIT')}}</h2>
+    <h2 class="section-title">
+        {{__('ZARIT')}}
+        <span class="float-right"><a href="{{ URL::to('/zarit/new') }}" class="btn btn-primary"><i class="fas fa-plus"></i> {{ __('Add new') }}</a></span>
+    </h2>
     <!-- card wrapper -->
     <div class="row">
         <div class="col-12 col-md-6 col-lg-6">
