@@ -45,11 +45,11 @@
         <div class="card-body">
             <table>
                 <tr>
-                    <th>Phone</th>
+                    <th>Téléphone</th>
                     <td><a href="tel:{{ $service->phone }}">{{ $service->phone }}</a></td>
                 </tr>
                 <tr>
-                    <th>Website</th>
+                    <th>Site Internet</th>
                     <td><a href="http://{{ $service->website }}" target="_blank">{{ $service->website }}</a></td>
                 </tr>
             </table>

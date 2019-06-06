@@ -16,7 +16,7 @@
 <div class="section-body">
     <h2 class="section-title">
         {{__('ZARIT')}}
-        <span class="float-right"><a href="{{ URL::to('/zarit/new') }}" class="btn btn-primary"><i class="fas fa-plus"></i> {{ __('Add new') }}</a></span>
+        <span class="float-right"><a href="{{ URL::to('/zarit/new') }}" class="btn btn-primary"><i class="fas fa-plus"></i> {{ __('Ajouter') }}</a></span>
     </h2>
     <!-- card wrapper -->
     <div class="row">
@@ -75,7 +75,7 @@
         <div class="col-12 col-md-6 col-lg-6">
             <div class="card">
                 <div class="card-header">
-                    <h4>Your past ZARITs</h4>
+                    <h4>Votre ZARIT passé</h4>
                 </div>
                 @if (true)
                     <div class="card-body p-0 zarit-scores-tables">

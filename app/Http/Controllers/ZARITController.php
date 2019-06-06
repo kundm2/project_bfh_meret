@@ -16,12 +16,16 @@ class ZARITController extends Controller {
     }
 
     public function index() {
-        $reports = Report::where('user_id', Auth::user()->id)->get();
-        $graphData = $this->getGraphData($reports);
-        return view('zarit.zaritIndex', [
-            'reports' => $reports,
-            'graphData' => $graphData
-        ]);
+        $reports = Report::where('user_id', Auth::user()->id)->get()->sortByDesc('issue_date');
+        if (!$reports->isEmpty()) {
+            $graphData = $this->getGraphData($reports);
+            return view('zarit.zaritIndex', [
+                'reports' => $reports,
+                'graphData' => $graphData
+            ]);
+        } else {
+            return redirect('zarit/new');
+        }
     }
 
     public function new() {

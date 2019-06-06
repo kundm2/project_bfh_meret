@@ -36,7 +36,7 @@ class ServiceController extends Controller {
     public static function categoryList($categories) {
         $retVal = '';
         foreach ($categories as $category) {
-            $retVal .= '<a href="' . $category['id'] . '">' . $category['name'] . '</a>, ';
+            $retVal .= $category['name'] . ', ';
         }
         return substr($retVal, 0, -2);
     }

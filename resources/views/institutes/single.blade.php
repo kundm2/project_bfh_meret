@@ -24,7 +24,7 @@
                 <div class="card-body p-0">
                     <table class="table">
                         <tr>
-                            <th >{{__('Address')}}</th>
+                            <th >{{__('Adresse')}}</th>
                             <td>
                                 {{ $institution->address }} <br />
                                 {{ $institution->postcode}} {{ $institution->city}}
@@ -32,7 +32,7 @@
                         </tr>
                         @if (isset($institution->phone))
                             <tr>
-                                <th >{{__('Phone')}}</th>
+                                <th >{{__('Téléphone')}}</th>
                                 <td>
                                     <a href="tel:{{ $institution->phone }}">{{ $institution->phone }}</a>
                                 </td>
@@ -40,7 +40,7 @@
                         @endif
                         @if (isset($institution->website))
                             <tr>
-                                <th >{{__('Website')}}</th>
+                                <th >{{__('Site Internet')}}</th>
                                 <td>
                                     <a href="{{ $institution->website }}">{{ $institution->website }}</a>
                                 </td>
@@ -65,8 +65,7 @@
                 <script>
                     $( document ).ready(function() {
                         var institute = {!! json_encode($temp) !!};
-                        iM = new institutesMap ('mapdiv', institute);
-                        iM.initMap({{$institution->lat}}, {{$institution->lon}}, 11);
+                        iM = new institutesMap ('mapdiv', institute, {{$institution->lat}}, {{$institution->lon}}, 11);
                     });
                 </script>
             </div>

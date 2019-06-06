@@ -9,17 +9,17 @@
 	<ul class="navbar-nav navbar-right">
 		<li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
 		<img alt="image" src="/img/avatar/avatar-1.png" class="rounded-circle mr-1">
-		<div class="d-sm-none d-lg-inline-block">Hi, {{Auth::user()->name}}</div></a>
+		<div class="d-sm-none d-lg-inline-block">{{Auth::user()->name}} </div></a>
 		<div class="dropdown-menu dropdown-menu-right">
 			<a href="{{ URL::to('/profile') }}" class="dropdown-item has-icon">
-			    <i class="far fa-user"></i> {{ __('Profile') }}
+			    <i class="far fa-user"></i> {{ __('Profil') }}
 			</a>
 			<a href="{{ URL::to('/settings') }}" class="dropdown-item has-icon">
-			    <i class="fas fa-cog"></i> {{ __('Settings') }}
+			    <i class="fas fa-cog"></i> {{ __('Réglages') }}
 			</a>
 			<div class="dropdown-divider"></div>
             <a class="dropdown-item has-icon text-danger" href="{{ route('logout') }}">
-                <i class="fas fa-sign-out-alt"></i> {{ __('Logout') }}
+                <i class="fas fa-sign-out-alt"></i> {{ __('Déconnecter') }}
 			</a>
 		</div>
 		</li>
