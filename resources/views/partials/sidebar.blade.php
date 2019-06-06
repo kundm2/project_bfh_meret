@@ -17,8 +17,8 @@
             <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-clipboard-check"></i><span>{{ __('Zarit') }}</span></a>
                 <ul class="dropdown-menu">
-                    <li><a href="{{ URL::to('/zarit/new') }}">{{ __('Add new') }}</a></li>
                     <li><a href="{{ URL::to('/zarit') }}">{{ __('Overview') }}</a></li>
+                    <li><a href="{{ URL::to('/zarit/new') }}">{{ __('Add new') }}</a></li>
                 </ul>
             </li>
             <li><a class="nav-link" href="{{ URL::to('/profile') }}"><i class="fas fa-user"></i><span>{{ __('Profile') }}</span></a></li>
