@@ -37,6 +37,12 @@ body.services-overview .section-title .input-group {
     width: 100%;
     position: relative;
 }
+.marker img {
+    margin-right: 3px;
+}
+.insititution-legend {
+    display: none;
+}
 
 
 /* ZARIT */
@@ -60,9 +66,6 @@ body.services-overview .section-title .input-group {
     background: linear-gradient(to right, #00BF11, #8F1B00); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
-
-
-
 
 
 
@@ -94,5 +97,11 @@ body.services-overview .section-title .input-group {
     }
     .selectgroup-button+.marker .label {
         display: none;
+    }
+}
+
+@media only screen and (max-width: 536px) {
+    .insititution-legend {
+        display: block;
     }
 }

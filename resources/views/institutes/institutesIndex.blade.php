@@ -59,6 +59,31 @@
             iM = new institutesMap ('mapdiv', institutes, 47.00704178216761, 6.772727966308595, 11);
         });
     </script>
+
+    <div class="card insititution-legend">
+        <div class="card-body">
+            <table>
+                <tbody>
+                    <tr>
+                        <td><img src="{{ URL::asset("/img/markers/hospital.png") }}" width="20"></td>
+                        <td>Hospital</td>
+                    </tr>
+                    <tr>
+                        <td><img src="{{ URL::asset("/img/markers/drugstore.png") }}" width="20"></td>
+                        <td>Droguerie</td>
+                    </tr>
+                    <tr>
+                        <td><img src="{{ URL::asset("/img/markers/pharmacy.png") }}" width="20"></td>
+                        <td>Pharmacie</td>
+                    </tr>
+                    <tr>
+                        <td><img src="{{ URL::asset("/img/markers/ems.png") }}" width="20"></td>
+                        <td>EMS</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
 
 @endsection
