@@ -1,6 +1,6 @@
 @extends('page')
 
-@section('title', 'Events')
+@section('title', 'Événements')
 
 @section('navbar')
 @endsection
@@ -13,7 +13,7 @@
 @section('main-content')
 
 <div class="section-body">
-    <h2 class="section-title">Events</h2>
+    <h2 class="section-title">Événements</h2>
 </div>
 
 @endsection

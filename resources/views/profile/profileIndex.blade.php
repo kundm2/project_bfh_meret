@@ -1,6 +1,6 @@
 @extends('page')
 
-@section('title', 'Profile')
+@section('title', 'Profil')
 
 @section('navbar')
 @endsection
@@ -13,7 +13,7 @@
 @section('main-content')
 
 <div class="section-body">
-    <h2 class="section-title">Profile</h2>
+    <h2 class="section-title">Profil</h2>
 </div>
 
 @endsection

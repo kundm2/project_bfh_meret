@@ -1,6 +1,6 @@
 @extends('page')
 
-@section('title', __('Settings'))
+@section('title', __('Réglages'))
 
 @section('navbar')
 @endsection
@@ -14,7 +14,7 @@
 
 <div class="section-body">
     <h2 class="section-title">
-        {{ __('Settings') }}
+        {{ __('Réglages') }}
     </h2>
 
 </div>

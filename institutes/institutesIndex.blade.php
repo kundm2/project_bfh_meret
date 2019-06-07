@@ -1,6 +1,6 @@
 @extends('page')
 
-@section('title', 'Institutes')
+@section('title', 'Institutions')
 
 @section('navbar')
 @endsection
@@ -22,7 +22,7 @@
                 </div>
             </div>
         </div>
-        Institutes
+        Institutions
     </h2>
 
     <br>
