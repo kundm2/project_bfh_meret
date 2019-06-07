@@ -1,6 +1,6 @@
 @extends('master')
 
-@section('title', 'Login')
+@section('title', 'Enregistrement')
 
 <?php
     use Carbon\Carbon;
